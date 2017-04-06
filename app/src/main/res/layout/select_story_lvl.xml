@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:columnCount="3"
+    android:orientation="horizontal"
+    >
+
+    <Button android:text="@string/numb_1"/>
+    <Button android:text="@string/numb_2"/>
+    <Button android:text="@string/numb_3"/>
+    <Button android:text="@string/numb_4"/>
+    <Button android:text="@string/numb_5"/>
+    <Button android:text="@string/numb_6"/>
+    <Button android:text="@string/numb_7"/>
+    <Button android:text="@string/numb_8"/>
+    <Button android:text="@string/numb_9"/>
+    <Button android:text="@string/numb_10"/>
+    <Button android:text="@string/numb_11"/>
+    <Button android:text="@string/numb_12"/>
+
+</GridLayout>

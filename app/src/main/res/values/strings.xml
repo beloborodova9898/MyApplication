@@ -1,0 +1,49 @@
+<resources>
+
+    <string name="app_name">My Application</string>
+    <string name="start_button">Начать</string>
+    <string name="statistics_button">Статистика</string>
+    <string name="options_button">Опции</string>
+    <string name="how_to_play_button">Как играть</string>
+    <string name="about_button">Об игре</string>
+
+    <string name="app_description">Информация об игре</string>
+    <string name="app_help">Какие-то инструкции</string>
+
+    <string name="select_mode_lbl">Выберите режим игры:</string>
+    <string name="story_mod_description">Режим истории - несколько фиксированных уровней</string>
+    <string name="endless_mod_description">Бесконечный режим - бесконечно генерируемые уровни (сложность можно выбрать в настройках)</string>
+    <string name="survival_mod_description">Режим выживания - для самых жёстких</string>
+    <string name="story_mod_button">История</string>
+    <string name="endless_mod_button">Бесконечный</string>
+    <string name="survival_mod_button">Выживание</string>
+
+    <string name="low_diff_button">Низкая</string>
+    <string name="high_diff_button">Высокая</string>
+    <string name="reset_surv_button">Обнулить</string>
+    <string name="low_high_diff_lbl">Вы можете выбрать сложность бесконечного режима:</string>
+    <string name="reset_surv_lbl">Нажмите, чтобы обнулить прогресс режима выживания:</string>
+
+    <string name="stat_story">Закончено сюжетных уровней:</string>
+    <string name="stat_endl">Закончено уровней бесконечного режима:</string>
+    <string name="stat_surv">Масимальный пройденный уровень режима выживания:</string>
+
+    <string name="numb_1">1</string>
+    <string name="numb_2">2</string>
+    <string name="numb_3">3</string>
+    <string name="numb_4">4</string>
+    <string name="numb_5">5</string>
+    <string name="numb_6">6</string>
+    <string name="numb_7">7</string>
+    <string name="numb_8">8</string>
+    <string name="numb_9">9</string>
+    <string name="numb_10">10</string>
+    <string name="numb_11">11</string>
+    <string name="numb_12">12</string>
+
+    <string name="target_lbl">Цель:</string>
+    <string name="give_up_button">Сдаться</string>
+    <string name="need_help_button">Помогите</string>
+    <string name="no_help_button">Помощи не будет</string>
+
+</resources>
