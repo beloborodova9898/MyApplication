@@ -1,11 +1,13 @@
-package com.example.vava.myapplication;
+package com.example.vava.myapplication.UserInterface;
 
 // Готово
 
 import android.app.Activity;
 import android.os.Bundle;
 
-public class HowToPlayPageCore extends Activity {
+import com.example.vava.myapplication.R;
+
+public class HowToPlayPageActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

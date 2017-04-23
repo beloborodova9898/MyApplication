@@ -1,4 +1,4 @@
-package com.example.vava.myapplication;
+package com.example.vava.myapplication.UserInterface;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.vava.myapplication.R;
 
-public class SelectGameModCore extends Activity {
+
+public class SelectGameModActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +24,7 @@ public class SelectGameModCore extends Activity {
         });
 
         Button endless = (Button) findViewById(R.id.buttonEndless);
-        story.setOnClickListener(new View.OnClickListener() {
+        endless.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 buttonEndlessPressed();
@@ -30,7 +32,7 @@ public class SelectGameModCore extends Activity {
         });
 
         Button survival = (Button) findViewById(R.id.buttonSurvival);
-        story.setOnClickListener(new View.OnClickListener() {
+        survival.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 buttonSurvivalPressed();
@@ -39,17 +41,17 @@ public class SelectGameModCore extends Activity {
     }
 
     public void buttonStoryPressed () {
-        Intent intent = new Intent(this, SelectStoryLvlCore.class);
+        Intent intent = new Intent(this, SelectStoryLvlActivity.class);
         startActivity(intent);
     }
 
     public void buttonEndlessPressed () {
-        Intent intent = new Intent(this, EndlessLvlCore.class);
+        Intent intent = new Intent(this, EndlessLvlActivity.class);
         startActivity(intent);
     }
 
     public void buttonSurvivalPressed () {
-        Intent intent = new Intent(this, SurvivalLvlCore.class);
+        Intent intent = new Intent(this, SurvivalLvlActivity.class);
         startActivity(intent);
     }
 }

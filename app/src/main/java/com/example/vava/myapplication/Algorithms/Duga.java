@@ -1,12 +1,11 @@
-package com.example.vava.myapplication;
+package com.example.vava.myapplication.Algorithms;
 
 public class Duga {
-    private int[] otIdo;
+    private final int[] otIdo;
 
     Duga(int[] values) {
         otIdo = new int[2];
-        for (int i = 0; i < 2; i++)
-            otIdo[i] = values[i];
+        System.arraycopy( values, 0, otIdo, 0, values.length );
     }
 
     public boolean equals(Object o) {
@@ -33,5 +32,13 @@ public class Duga {
 
     public boolean startsAt (int index){
         return (otIdo[0]==index);
+    }
+
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + otIdo[0];
+        result = prime * result + otIdo[1];
+        return result;
     }
 }

@@ -1,55 +1,61 @@
 package com.example.vava.myapplication;
 
+import com.example.vava.myapplication.Algorithms.Glass;
+import com.example.vava.myapplication.Algorithms.GlassGraph;
+import com.example.vava.myapplication.Algorithms.GlassGraphSolver;
+import com.example.vava.myapplication.Algorithms.GlassSolution;
+import com.example.vava.myapplication.Algorithms.Vert;
+
 import java.util.NoSuchElementException;
 
 // Интерактивный класс для игры с 3 стаканами
 
 public class Game3Stakana {
-    private int [] maxV;
-    private int [] nachZnach;
-    private int [] currentV;
+    private Glass [] glasses;
+    private final int [] defaultValues;
 
     Game3Stakana(int[] max, int[] nach) {
-        maxV = max;
-        nachZnach = nach;
-        currentV = nachZnach.clone();
+        glasses = new Glass[max.length];
+        for (int i = 0; i < glasses.length; i++)
+            glasses[i] = new Glass(max[i], nach[i]);
+        defaultValues = nach;
     }
 
-    public void perelit(int iz, int v) {
-        if ((currentV[iz] == 0) || (currentV[v] == maxV[v])) return;
+    public void transfuse(int iz, int v) {
+        if ((glasses[iz].isEmpty()) || (glasses[v].isFull())) return;
 
-        int nadoVv = maxV[v] - currentV[iz];
+        int nadoVv = glasses[v].getFreeVolume();
 
-        if (currentV[iz] <= nadoVv) {
-            currentV[v] += currentV[iz];
-            currentV[iz] = 0;
+        if (glasses[iz].getCurrentValue() <= nadoVv) {
+            glasses[v].fill(glasses[iz].getCurrentValue());
+            glasses[iz].makeEmpty();
         } else {
-            currentV[v] = maxV[v];
-            currentV[iz] -= nadoVv;
+            glasses[v].makeFull();
+            glasses[iz].take(nadoVv);
         }
     }
 
-    public void printSostoyanie()
+    public String toString()
     {
         String toPrint="";
-        for(int i=0; i<maxV.length;i++)
-            toPrint+=(currentV[i]+"("+maxV[i]+") ");
+        for(int i=0; i<glasses.length;i++)
+            toPrint+=(glasses[i].getCurrentValue()+"("+glasses[i].getMaxValue()+") ");
 
-        System.out.println(toPrint);
+        return toPrint;
     }
 
     public void restartGame()
     {
-        for (int i=0; i<maxV.length; i++)
-            currentV[i]=nachZnach[i];
+        for (int i=0; i<glasses.length; i++)
+            glasses[i].setCurrentValue(defaultValues[i]);
     }
 
     public GlassSolution solve(Vert finish, int maxDiff) {
         GlassGraph a = null;
         try {
-            a = new GlassGraph(maxV, new Vert(currentV), maxDiff);
-            GlassSolution sol = a.breadthFirstSearch(finish);
-            return sol;
+            a = new GlassGraph(glasses, maxDiff);
+            GlassGraphSolver tempSolver = new GlassGraphSolver(a);
+            return tempSolver.breadthFirstSearch(finish);
         } catch (OutOfMemoryError e) {
             return null;
         } catch (NoSuchElementException n) {

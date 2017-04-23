@@ -1,4 +1,4 @@
-package com.example.vava.myapplication;
+package com.example.vava.myapplication.UserInterface;
 
 // Готово
 
@@ -8,7 +8,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainMenuCore extends Activity {
+import com.example.vava.myapplication.R;
+
+public class MainMenuActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,27 +59,27 @@ public class MainMenuCore extends Activity {
     }
 
     public void buttonStartPressed () {
-        Intent intent = new Intent(this, SelectGameModCore.class);
+        Intent intent = new Intent(this, SelectGameModActivity.class);
         startActivity(intent);
     }
 
     public void buttonAboutPressed () {
-        Intent intent = new Intent(this, AboutPageCore.class);
+        Intent intent = new Intent(this, AboutPageActivity.class);
         startActivity(intent);
     }
 
     public void buttonStatisticsPressed() {
-        Intent intent = new Intent(this, StatisticsPageCore.class);
+        Intent intent = new Intent(this, StatisticsPageActivity.class);
         startActivity(intent);
     }
 
     public void buttonOptionsPressed() {
-        Intent intent = new Intent(this, OptionsPageCore.class);
+        Intent intent = new Intent(this, OptionsPageActivity.class);
         startActivity(intent);
     }
 
     public void buttonHeipPressed() {
-        Intent intent = new Intent(this, HowToPlayPageCore.class);
+        Intent intent = new Intent(this, HowToPlayPageActivity.class);
         startActivity(intent);
     }
 

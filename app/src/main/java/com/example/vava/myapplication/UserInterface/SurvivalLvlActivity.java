@@ -1,10 +1,12 @@
-package com.example.vava.myapplication;
+package com.example.vava.myapplication.UserInterface;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.Button;
 
-public class SurvivalLvlCore extends Activity {
+import com.example.vava.myapplication.R;
+
+public class SurvivalLvlActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

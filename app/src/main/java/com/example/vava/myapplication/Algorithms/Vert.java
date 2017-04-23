@@ -1,12 +1,13 @@
-package com.example.vava.myapplication;
+package com.example.vava.myapplication.Algorithms;
+
+import java.util.Arrays;
 
 public class Vert {
-    private int mass[];
+    private final int mass[];
 
-    Vert(int[] values) {
+    public Vert(int[] values) {
         mass = new int[values.length];
-        for (int i = 0; i < values.length; i++)
-            mass[i] = values[i];
+        System.arraycopy( values, 0, mass, 0, values.length );
     }
 
     public int getSumm() {
@@ -20,7 +21,7 @@ public class Vert {
         return mass[i];
     }
 
-    public String vertToString() {
+    public String toString() {
         String otvet = "";
         for (int i : mass) otvet += (i + "-");
         return otvet.substring(0, otvet.length() - 1);
@@ -41,5 +42,9 @@ public class Vert {
         for (int i = 0; i < mass.length; i++)
             if (mass[i] != e.getValue(i)) return false;
         return true;
+    }
+
+    public int hashCode() {
+       return Arrays.hashCode(mass);
     }
 }

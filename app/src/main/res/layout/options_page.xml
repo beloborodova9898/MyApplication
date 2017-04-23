@@ -13,13 +13,13 @@
         android:text="@string/low_diff_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button9" />
+        android:id="@+id/buttonLowDiff" />
 
     <Button
         android:text="@string/high_diff_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button10" />
+        android:id="@+id/buttonHighDiff" />
 
     <TextView
         android:text="@string/reset_surv_lbl"
@@ -31,6 +31,6 @@
         android:text="@string/reset_surv_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button11" />
+        android:id="@+id/buttonResetEndless" />
 
 </LinearLayout>

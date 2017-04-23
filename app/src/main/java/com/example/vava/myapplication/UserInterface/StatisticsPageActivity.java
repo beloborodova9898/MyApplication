@@ -1,8 +1,10 @@
-package com.example.vava.myapplication;
+package com.example.vava.myapplication.UserInterface;
 import android.app.Activity;
 import android.os.Bundle;
 
-public class StatisticsPageCore extends Activity {
+import com.example.vava.myapplication.R;
+
+public class StatisticsPageActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

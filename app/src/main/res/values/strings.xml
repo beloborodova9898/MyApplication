@@ -23,6 +23,8 @@
     <string name="reset_surv_button">Обнулить</string>
     <string name="low_high_diff_lbl">Вы можете выбрать сложность бесконечного режима:</string>
     <string name="reset_surv_lbl">Нажмите, чтобы обнулить прогресс режима выживания:</string>
+    <string name="diff_changed_message">Сложность изменена!</string>
+    <string name="endl_mode_reset_finished">Режим выживания обнулён!</string>
 
     <string name="stat_story">Закончено сюжетных уровней:</string>
     <string name="stat_endl">Закончено уровней бесконечного режима:</string>

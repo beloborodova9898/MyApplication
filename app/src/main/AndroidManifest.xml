@@ -9,18 +9,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".MainMenuCore">
+        <activity android:name=".UserInterface.MainMenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".SelectGameModCore"/>
-        <activity android:name=".AboutPageCore"/>
-        <activity android:name=".StatisticsPageCore"/>
-        <activity android:name=".HowToPlayPageCore"/>
-        <activity android:name=".OptionsPageCore"/>
+        <activity android:name=".UserInterface.SelectGameModActivity"/>
+        <activity android:name=".UserInterface.AboutPageActivity"/>
+        <activity android:name=".UserInterface.StatisticsPageActivity"/>
+        <activity android:name=".UserInterface.HowToPlayPageActivity"/>
+        <activity android:name=".UserInterface.OptionsPageActivity"/>
+        <activity android:name=".UserInterface.EndlessLvlActivity"/>
+        <activity android:name=".UserInterface.SelectStoryLvlActivity"/>
 
     </application>
 
