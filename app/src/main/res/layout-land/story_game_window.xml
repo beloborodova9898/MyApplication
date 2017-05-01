@@ -7,6 +7,7 @@
         android:text="@string/target_lbl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="@dimen/most_text"
         android:id="@+id/textViewTarget" />
 
     <LinearLayout
@@ -18,12 +19,14 @@
             android:text="@string/need_help_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="@dimen/most_text"
             android:id="@+id/buttonNeedHelp" />
 
         <Button
             android:text="@string/give_up_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="@dimen/most_text"
             android:id="@+id/buttonGiveUp" />
     </LinearLayout>
 
@@ -32,62 +35,32 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="bottom|center"
-            android:layout_weight="1">
-
-            <ImageButton
-                android:src="@android:drawable/btn_dialog"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageButton1"
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textSize="@dimen/text_on_glass"
+                android:textColor="@color/glass1color"
+                android:id="@+id/glass1"
+                android:layout_weight="1"
                  />
-            <TextView
-                android:text="#ЗНАЧ"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="bottom|center"
-            android:layout_weight="1">
-
-            <ImageButton
-                android:src="@android:drawable/btn_dialog"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageButton2"
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textSize="@dimen/text_on_glass"
+                android:textColor="@color/glass2color"
+                android:id="@+id/glass2"
+                android:layout_weight="1"
                 />
-            <TextView
-                android:text="#ЗНАЧ"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="bottom|center"
-            android:layout_weight="1">
-
-            <ImageButton
-                android:src="@android:drawable/btn_dialog"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageButton3"
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textSize="@dimen/text_on_glass"
+                android:textColor="@color/glass3color"
+                android:id="@+id/glass3"
+                android:layout_weight="1"
                 />
-            <TextView
-                android:text="#ЗНАЧ"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
 
     </LinearLayout>
 

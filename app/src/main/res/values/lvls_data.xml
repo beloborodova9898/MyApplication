@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    // макс, нач, цель
+    <integer-array name="st_lvl_1">
+        <item>10</item>
+        <item>4</item>
+        <item>6</item>
+
+        <item>0</item>
+        <item>4</item>
+        <item>6</item>
+
+        <item>10</item>
+        <item>0</item>
+        <item>0</item>
+    </integer-array>
+
+    <integer-array name="st_lvl_2">
+        <item>10</item>
+        <item>5</item>
+        <item>5</item>
+
+        <item>10</item>
+        <item>0</item>
+        <item>0</item>
+
+        <item>0</item>
+        <item>5</item>
+        <item>5</item>
+    </integer-array>
+
+    <integer-array name="st_lvl_3">
+        <item>10</item>
+        <item>2</item>
+        <item>5</item>
+
+        <item>0</item>
+        <item>0</item>
+        <item>5</item>
+
+        <item>2</item>
+        <item>0</item>
+        <item>3</item>
+    </integer-array>
+
+    <integer-array name="st_lvl_4">
+        <item>10</item>
+        <item>4</item>
+        <item>6</item>
+
+        <item>0</item>
+        <item>4</item>
+        <item>6</item>
+
+        <item>10</item>
+        <item>0</item>
+        <item>0</item>
+    </integer-array>
+
+    <integer-array name="st_lvl_5">
+        <item>10</item>
+        <item>4</item>
+        <item>6</item>
+
+        <item>0</item>
+        <item>4</item>
+        <item>6</item>
+
+        <item>10</item>
+        <item>0</item>
+        <item>0</item>
+    </integer-array>
+
+    <integer-array name="st_lvl_6">
+        <item>10</item>
+        <item>4</item>
+        <item>6</item>
+
+        <item>0</item>
+        <item>4</item>
+        <item>6</item>
+
+        <item>10</item>
+        <item>0</item>
+        <item>0</item>
+    </integer-array>
+
+    <integer-array name="st_lvl_7">
+        <item>10</item>
+        <item>4</item>
+        <item>6</item>
+
+        <item>0</item>
+        <item>4</item>
+        <item>6</item>
+
+        <item>10</item>
+        <item>0</item>
+        <item>0</item>
+    </integer-array>
+
+    <integer-array name="st_lvl_8">
+        <item>10</item>
+        <item>4</item>
+        <item>6</item>
+
+        <item>0</item>
+        <item>4</item>
+        <item>6</item>
+
+        <item>10</item>
+        <item>0</item>
+        <item>0</item>
+    </integer-array>
+
+    <integer-array name="st_lvl_9">
+        <item>10</item>
+        <item>4</item>
+        <item>6</item>
+
+        <item>0</item>
+        <item>4</item>
+        <item>6</item>
+
+        <item>10</item>
+        <item>0</item>
+        <item>0</item>
+    </integer-array>
+
+    <integer-array name="st_lvl_10">
+        <item>10</item>
+        <item>4</item>
+        <item>6</item>
+
+        <item>0</item>
+        <item>4</item>
+        <item>6</item>
+
+        <item>10</item>
+        <item>0</item>
+        <item>0</item>
+    </integer-array>
+
+    <integer-array name="st_lvl_11">
+        <item>10</item>
+        <item>4</item>
+        <item>6</item>
+
+        <item>0</item>
+        <item>4</item>
+        <item>6</item>
+
+        <item>10</item>
+        <item>0</item>
+        <item>0</item>
+    </integer-array>
+
+    <integer-array name="st_lvl_12">
+        <item>10</item>
+        <item>4</item>
+        <item>6</item>
+
+        <item>0</item>
+        <item>4</item>
+        <item>6</item>
+
+        <item>10</item>
+        <item>0</item>
+        <item>0</item>
+    </integer-array>
+
+</resources>

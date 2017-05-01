@@ -11,47 +11,23 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-
-        <LinearLayout
-
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageButton
-                android:id="@+id/imageButton1"
+            <Button
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@android:drawable/btn_dialog" />
+                android:layout_height="0dp"
+                android:textSize="@dimen/text_on_glass"
+                android:id="@+id/glass1"
+                android:textColor="@color/glass1color"
+                android:layout_weight="1"
+                />
 
-            <TextView
+            <Button
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="#ЗНАЧ" />
-        </LinearLayout>
-
-        <LinearLayout
-
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageButton
-                android:id="@+id/imageButton2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@android:drawable/btn_dialog" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="#ЗНАЧ" />
-        </LinearLayout>
-
+                android:layout_height="0dp"
+                android:textColor="@color/glass3color"
+                android:textSize="@dimen/text_on_glass"
+                android:id="@+id/glass3"
+                android:layout_weight="1"
+                />
     </LinearLayout>
 
     <LinearLayout
@@ -60,29 +36,16 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <LinearLayout
-
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageButton
-                android:id="@+id/imageButton3"
+            <Button
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@android:drawable/btn_dialog" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="#ЗНАЧ" />
-        </LinearLayout>
-
+                android:layout_height="0dp"
+                android:textColor="@color/glass2color"
+                android:textSize="@dimen/text_on_glass"
+                android:id="@+id/glass2"
+                android:layout_weight="1"
+                />
 
         <LinearLayout
-
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -91,6 +54,7 @@
 
             <TextView
                 android:id="@+id/textViewTarget"
+                android:textSize="@dimen/most_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/target_lbl" />
@@ -108,7 +72,5 @@
                 android:text="@string/give_up_button" />
 
         </LinearLayout>
-
     </LinearLayout>
-
 </LinearLayout>

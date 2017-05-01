@@ -43,9 +43,13 @@
     <string name="numb_11">11</string>
     <string name="numb_12">12</string>
 
-    <string name="target_lbl">Цель:</string>
+    <string name="target_lbl">Цель: </string>
     <string name="give_up_button">Сдаться</string>
     <string name="need_help_button">Помогите</string>
     <string name="no_help_button">Помощи не будет</string>
+
+    <string name="help_header">Вот решение:</string>
+    <string name="user_gives_up">Не сдавайся!</string>
+    <string name="user_wins">Вы выиграли!</string>
 
 </resources>

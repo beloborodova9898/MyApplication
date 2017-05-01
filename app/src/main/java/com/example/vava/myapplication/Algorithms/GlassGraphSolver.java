@@ -12,19 +12,17 @@ import java.util.Queue;
 import java.util.Stack;
 
 public class GlassGraphSolver {
-    private final List<Vert> verts;
-    private final int dim;
-    private final List<Integer> dugiVertInd;
-    private final List<Duga> dugi;
 
-    public GlassGraphSolver(GlassGraph g) {
+    public static GlassSolution breadthFirstSearch(GlassGraph g, Vert destination) {
+        final List<Vert> verts;
+        final int dim;
+        final List<Integer> dugiVertInd;
+        final List<Duga> dugi;
         verts = g.getVerts();
         dim = g.getDim();
         dugiVertInd = g.getDugiVertInd();
         dugi = g.getDugi();
-    }
 
-    public GlassSolution breadthFirstSearch(Vert destination) {
         if (verts.get(0).getSumm()!=destination.getSumm())
             throw new NoSuchElementException("Sums are different!");
 
@@ -35,7 +33,7 @@ public class GlassGraphSolver {
         boolean[] visited = new boolean[verts.size()];
         int[] prev = new int[verts.size()];
         Queue<Integer> qu = new LinkedList<>();
-        int[] tempNeighs = getNeighsOf(start);
+        int[] tempNeighs = getNeighsOf(start, verts, dugiVertInd, dugi);
 
         for (int i : tempNeighs) {
             prev[i] = start;
@@ -46,7 +44,7 @@ public class GlassGraphSolver {
             int tempVert = qu.poll();
             if (!visited[tempVert]) {
                 if (tempVert == destNumber) break;
-                tempNeighs = getNeighsOf(tempVert);
+                tempNeighs = getNeighsOf(tempVert, verts, dugiVertInd, dugi);
                 for (int i : tempNeighs)
                     if ((!qu.contains(i)) && (!visited[i])) {
                         prev[i] = tempVert;
@@ -70,14 +68,14 @@ public class GlassGraphSolver {
         for (int i = 0; i < vertPath.length; i++)
             vertPath[i] = pathStack.pop();
 
-        return vertPathToSolution(vertPath);
+        return vertPathToSolution(vertPath, verts, dim);
     }
 
-    private GlassSolution vertPathToSolution(int[] path) {
+    private static GlassSolution vertPathToSolution(int[] path, List<Vert> verts, int dim) {
         int[][] soln = new int[path.length-1][2];
 
         for (int i = 0; i < (path.length - 1); i ++) {
-            int[] temp = whatHappened(verts.get(path[i]), verts.get(path[i + 1]));
+            int[] temp = whatHappened(verts.get(path[i]), verts.get(path[i + 1]), dim);
             for (int j = 0; j < 2; j++)
                 soln[i][j] = temp[j];
         }
@@ -85,7 +83,7 @@ public class GlassGraphSolver {
         return new GlassSolution(soln);
     }
 
-    private int[] whatHappened(Vert iz, Vert v) {
+    private static int[] whatHappened(Vert iz, Vert v, int dim) {
         for (int i = 0; i < dim; i++)
             for (int j = 0; j < dim; j++)
                 if (i != j) {
@@ -108,7 +106,7 @@ public class GlassGraphSolver {
         return null;
     }
 
-    private int[] getNeighsOf(int vertIndex) {
+    private static int[] getNeighsOf(int vertIndex, List<Vert> verts, List<Integer> dugiVertInd, List<Duga> dugi) {
         // По сути формирования Array List'а все пути из
         // вершины хранятся рядом, не разбросаны по листу
         int nachIndex = dugiVertInd.get(vertIndex);

@@ -59,7 +59,6 @@ public class OptionsPageActivity extends Activity {
     }
 
     public void resetEndlessMode () {
-
         Toast diffChangedMessage = Toast.makeText(getApplicationContext(),
                 R.string.endl_mode_reset_finished, Toast.LENGTH_SHORT);
         diffChangedMessage.show();

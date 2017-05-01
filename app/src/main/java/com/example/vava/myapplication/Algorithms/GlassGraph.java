@@ -17,10 +17,6 @@ public class GlassGraph {
     private List<Vert> verts;
     private List<Duga> dugi;
     private List<Integer> dugiVertInd;
-    // Чтобы был понятен смысл использования:
-    private final int dugiDim = 2;
-    private final int perviy = 0;
-    private final int vtoroy = 1;
     // -------------------------------------
     private final int dim;
     private final boolean maxExists;
@@ -169,7 +165,6 @@ public class GlassGraph {
         Пример использования:
 
         GlassGraph a = new GlassGraph(new int[]{3,5,10}, new Vert(new int[]{0,5,5}), 200);
-        GlassGraphSolver aSolver = new GlassGraphSolver(a);
-        GlassSolution aSolution = aSolver.breadthFirstSearch(new Vert(new int[]{2,5,3}));
+        GlassSolution aSolution = GlassGraphSolver.breadthFirstSearch(a, new Vert(new int[]{2,5,3}));
         System.out.printf(aSolution.toString());
  */
