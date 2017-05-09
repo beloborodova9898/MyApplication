@@ -7,12 +7,12 @@ import com.example.vava.myapplication.Algorithms.GlassSolution;
 import com.example.vava.myapplication.Algorithms.Vert;
 
 import java.util.NoSuchElementException;
+import java.util.Random;
 
 // Интерактивный класс для игры с 3 стаканами
 
 public class Game3Stakana {
     private Glass [] glasses;
-    private final int [] defaultValues;
     private Vert finish;
 
     public Game3Stakana(int[] data) {
@@ -20,12 +20,32 @@ public class Game3Stakana {
         for (int i = 0; i < 3; i++)
             glasses[i] = new Glass(data[i], data[i+3]);
 
-        defaultValues = new int[3];
-        for (int i = 0; i < 3; i++)
-            defaultValues[i] = data[i+3];
-
         finish = new Vert(new int[]{data[6], data[7], data[8]});
 
+    }
+
+    public Game3Stakana(boolean isDifficult) {
+        int min = 2;
+        int max = 14;
+
+        if(isDifficult) {
+            min = 3;
+            max = 30;
+        }
+
+        Random r = new Random();
+
+        glasses = new Glass[3];
+        for (int i = 0; i < 3; i++)
+        {
+            int tempMax = min + r.nextInt(max);
+            if (i==0) tempMax /= 2;
+            int tempCurr = r.nextInt(tempMax);
+            glasses[i] = new Glass(tempMax, tempCurr);
+        }
+
+        GlassGraph temp = new GlassGraph(glasses, 0);
+        finish = temp.getRandomVert();
     }
 
     public boolean transfuse(int iz, int v) {
@@ -55,12 +75,6 @@ public class Game3Stakana {
             toPrint+=(glasses[i].getCurrentValue()+"("+glasses[i].getMaxValue()+") ");
 
         return toPrint;
-    }
-
-    public void restartGame()
-    {
-        for (int i=0; i<glasses.length; i++)
-            glasses[i].setCurrentValue(defaultValues[i]);
     }
 
     public GlassSolution solve(Vert finish, int maxDiff) {

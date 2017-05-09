@@ -1,6 +1,6 @@
 <resources>
 
-    <string name="app_name">My Application</string>
+    <string name="app_name">Стаканыjy</string>
     <string name="start_button">Начать</string>
     <string name="statistics_button">Статистика</string>
     <string name="options_button">Опции</string>
@@ -47,9 +47,11 @@
     <string name="give_up_button">Сдаться</string>
     <string name="need_help_button">Помогите</string>
     <string name="no_help_button">Помощи не будет</string>
+    <string name="no_solution">Нет реш-я</string>
 
     <string name="help_header">Вот решение:</string>
     <string name="user_gives_up">Не сдавайся!</string>
     <string name="user_wins">Вы выиграли!</string>
+    <string name="really_no_sol">Действительно!</string>
 
 </resources>

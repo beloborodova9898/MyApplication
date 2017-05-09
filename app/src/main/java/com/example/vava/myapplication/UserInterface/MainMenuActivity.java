@@ -55,7 +55,11 @@ public class MainMenuActivity extends Activity {
                 buttonHeipPressed();
             }
         });
+    }
 
+    @Override
+    public void onBackPressed() {
+        finishAffinity();
     }
 
     public void buttonStartPressed () {

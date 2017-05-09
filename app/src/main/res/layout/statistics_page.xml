@@ -1,42 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgr">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/glass2color"
+        android:orientation="vertical"
+        >
 
     <TextView
         android:text="@string/stat_story"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView8" />
+        android:layout_height="wrap_content" />
 
     <TextView
-        android:text="#ЗНАЧ"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView9" />
+        android:id="@+id/textStoryCount" />
 
     <TextView
         android:text="@string/stat_endl"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView10" />
+        android:layout_height="wrap_content" />
 
     <TextView
-        android:text="#ЗНАЧ"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView11" />
+        android:id="@+id/textEndlCount" />
 
     <TextView
         android:text="@string/stat_surv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView122" />
+        android:layout_height="wrap_content" />
 
     <TextView
-        android:text="#ЗНАЧ"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView13" />
+        android:id="@+id/textMaxSurv" />
 
+    </LinearLayout>
 </LinearLayout>

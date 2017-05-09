@@ -111,6 +111,12 @@ public class SelectStoryLvlActivity extends Activity {
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, SelectGameModActivity.class);
+        startActivity(intent);
+    }
+
     public void buttonPressed(int i) {
         Intent intent = new Intent(this, StoryGameActivity.class);
         intent.putExtra("number", i);

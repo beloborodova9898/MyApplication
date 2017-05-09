@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Glassы</string>
+    <string name="start_button">Start</string>
+    <string name="statistics_button">Statistics</string>
+    <string name="options_button">Options</string>
+    <string name="how_to_play_button">How to play</string>
+    <string name="about_button">About the game</string>
+
+    <string name="app_description">Some information</string>
+    <string name="app_help">Some instructions</string>
+
+    <string name="select_mode_lbl">Select game mode:</string>
+    <string name="story_mod_description">Story mode - some static lvls</string>
+    <string name="endless_mod_description">Endless mode - endless lvls (set the difficulty in options)</string>
+    <string name="survival_mod_description">Survival mode - for the toughest players</string>
+    <string name="story_mod_button">Story</string>
+    <string name="endless_mod_button">Endless</string>
+    <string name="survival_mod_button">Survival</string>
+
+    <string name="low_diff_button">Low</string>
+    <string name="high_diff_button">High</string>
+    <string name="reset_surv_button">Null</string>
+    <string name="low_high_diff_lbl">Select the endless mode difficulty:</string>
+    <string name="reset_surv_lbl">Tap to delete the survival mode progress:</string>
+    <string name="diff_changed_message">Difficulty changed!</string>
+    <string name="endl_mode_reset_finished">Survival mode nulled!</string>
+
+    <string name="stat_story">Story lvls complete:</string>
+    <string name="stat_endl">Endless lvls complete:</string>
+    <string name="stat_surv">Max survival mode lvl complete:</string>
+
+    <string name="target_lbl">Target: </string>
+    <string name="give_up_button">Give up</string>
+    <string name="need_help_button">Help me</string>
+    <string name="no_help_button">No help</string>
+    <string name="no_solution">No sol-n</string>
+
+    <string name="help_header">Here is the solution:</string>
+    <string name="user_gives_up">Dont give up!</string>
+    <string name="user_wins">You won!</string>
+    <string name="really_no_sol">Really!</string>
+</resources>

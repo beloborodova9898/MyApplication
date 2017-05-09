@@ -1,37 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/backgr">
 
     <Button
+        android:background="@drawable/backbut"
         android:text="@string/start_button"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:id="@+id/buttonStart"
         android:layout_weight="5" />
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/most_spaces" />
+
     <Button
+        android:background="@drawable/backbut"
         android:text="@string/statistics_button"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:id="@+id/buttonStat"
         android:layout_weight="3" />
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/most_spaces" />
+
     <Button
+        android:background="@drawable/backbut"
         android:text="@string/options_button"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:id="@+id/buttonOptions"
         android:layout_weight="3" />
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/most_spaces" />
+
     <Button
+        android:background="@drawable/backbut"
         android:text="@string/how_to_play_button"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:id="@+id/buttonHelp"
         android:layout_weight="3" />
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/most_spaces" />
+
     <Button
+        android:background="@drawable/backbut"
         android:text="@string/about_button"
         android:layout_width="match_parent"
         android:layout_height="0dp"

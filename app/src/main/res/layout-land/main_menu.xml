@@ -1,37 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/backgr">
 
     <Button
+        android:background="@drawable/backbut"
         android:text="@string/about_button"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:id="@+id/buttonAbout"
         android:layout_weight="3" />
 
+    <Space
+        android:layout_width="@dimen/most_spaces"
+        android:layout_height="match_parent" />
+
     <Button
+        android:background="@drawable/backbut"
         android:text="@string/how_to_play_button"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:id="@+id/buttonHelp"
         android:layout_weight="3" />
 
+    <Space
+        android:layout_width="@dimen/most_spaces"
+        android:layout_height="match_parent" />
+
     <Button
+        android:background="@drawable/backbut"
         android:text="@string/options_button"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:id="@+id/buttonOptions"
         android:layout_weight="3" />
 
+    <Space
+        android:layout_width="@dimen/most_spaces"
+        android:layout_height="match_parent" />
+
     <Button
+        android:background="@drawable/backbut"
         android:text="@string/statistics_button"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:id="@+id/buttonStat"
         android:layout_weight="3" />
 
+    <Space
+        android:layout_width="@dimen/most_spaces"
+        android:layout_height="match_parent" />
+
     <Button
+        android:background="@drawable/backbut"
         android:text="@string/start_button"
         android:layout_width="0dp"
         android:layout_height="match_parent"

@@ -2,7 +2,9 @@ package com.example.vava.myapplication.UserInterface;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +24,8 @@ public class StoryGameActivity extends Activity {
     private Button [] visualGlasses;
     int activeGlass; // 3 = никакой
     private static final String KEY_GAME = "GAME";
+    public static final String STATIST = "statistics";
+    public static final String STATIST_STORY = "story";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -149,11 +153,21 @@ public class StoryGameActivity extends Activity {
         }
         if (game.transfuse(activeGlass, which)) {
             congr();
+            addStatistics();
             Intent intent = new Intent(this, SelectStoryLvlActivity.class);
             startActivity(intent);
         }
         refreshAll();
         activeGlass = 3;
+    }
+
+    private void addStatistics() {
+        SharedPreferences stats;
+        stats = getSharedPreferences(STATIST, Context.MODE_PRIVATE);
+
+        SharedPreferences.Editor editor = stats.edit();
+        editor.putInt(STATIST_STORY, stats.getInt(STATIST_STORY, 0) + 1);
+        editor.apply();
     }
 
     private void congr() {
@@ -173,8 +187,8 @@ public class StoryGameActivity extends Activity {
     }
 
     private void giveUpPressed() {
-        Toast diffChangedMessage = Toast.makeText(getApplicationContext(),
+        Toast toast = Toast.makeText(getApplicationContext(),
                 R.string.user_gives_up, Toast.LENGTH_SHORT);
-        diffChangedMessage.show();
+        toast.show();
     }
 }

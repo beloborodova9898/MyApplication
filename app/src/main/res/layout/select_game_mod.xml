@@ -1,45 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/backgr">
 
     <TextView
+        android:background="@color/glass2color"
         android:text="@string/select_mode_lbl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView2" />
 
     <TextView
+        android:background="@color/glass2color"
         android:text="@string/story_mod_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView3" />
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/most_spaces" />
+
     <Button
+        android:background="@drawable/backbut"
         android:text="@string/story_mod_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/buttonStory" />
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/most_spaces" />
+
     <TextView
+        android:background="@color/glass2color"
         android:text="@string/endless_mod_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView4" />
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/most_spaces" />
+
     <Button
+        android:background="@drawable/backbut"
         android:text="@string/endless_mod_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/buttonEndless" />
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/most_spaces" />
+
     <TextView
+        android:background="@color/glass2color"
         android:text="@string/survival_mod_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView5" />
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/most_spaces" />
+
     <Button
+        android:background="@drawable/backbut"
         android:text="@string/survival_mod_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

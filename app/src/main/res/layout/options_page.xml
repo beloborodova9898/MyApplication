@@ -1,36 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/backgr">
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/most_spaces" />
 
     <TextView
+        android:background="@color/glass2color"
         android:text="@string/low_high_diff_lbl"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView6" />
+        android:layout_height="wrap_content" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/most_spaces" />
 
     <Button
+        android:background="@drawable/backbut"
         android:text="@string/low_diff_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/buttonLowDiff" />
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/most_spaces" />
+
     <Button
+        android:background="@drawable/backbut"
         android:text="@string/high_diff_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/buttonHighDiff" />
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/most_spaces" />
+
     <TextView
+        android:background="@color/glass2color"
         android:text="@string/reset_surv_lbl"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView7" />
+        android:layout_height="wrap_content" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/most_spaces" />
 
     <Button
+        android:background="@drawable/backbut"
         android:text="@string/reset_surv_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonResetEndless" />
+        android:id="@+id/buttonResetSurv" />
 
 </LinearLayout>

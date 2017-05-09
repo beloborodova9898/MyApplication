@@ -1,23 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/backgr"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:columnCount="3"
-    android:orientation="horizontal"
     >
 
-    <Button android:text="@string/numb_1" android:id="@+id/lvl1"/>
-    <Button android:text="@string/numb_2" android:id="@+id/lvl2"/>
-    <Button android:text="@string/numb_3" android:id="@+id/lvl3"/>
-    <Button android:text="@string/numb_4" android:id="@+id/lvl4"/>
-    <Button android:text="@string/numb_5" android:id="@+id/lvl5"/>
-    <Button android:text="@string/numb_6" android:id="@+id/lvl6"/>
-    <Button android:text="@string/numb_7" android:id="@+id/lvl7"/>
-    <Button android:text="@string/numb_8" android:id="@+id/lvl8"/>
-    <Button android:text="@string/numb_9" android:id="@+id/lvl9"/>
-    <Button android:text="@string/numb_10" android:id="@+id/lvl10"/>
-    <Button android:text="@string/numb_11" android:id="@+id/lvl11"/>
-    <Button android:text="@string/numb_12" android:id="@+id/lvl12"/>
+    <Button android:text="@string/numb_1" android:id="@+id/lvl1"
+        android:background="@drawable/backbut"
+        android:layout_margin="@dimen/most_spaces"/>
+    <Button android:text="@string/numb_2" android:id="@+id/lvl2"
+        android:background="@drawable/backbut"
+        android:layout_margin="@dimen/most_spaces"/>
+    <Button android:text="@string/numb_3" android:id="@+id/lvl3"
+        android:background="@drawable/backbut"
+        android:layout_margin="@dimen/most_spaces"/>
+    <Button android:text="@string/numb_4" android:id="@+id/lvl4"
+        android:background="@drawable/backbut"
+        android:layout_margin="@dimen/most_spaces"/>
+    <Button android:text="@string/numb_5" android:id="@+id/lvl5"
+        android:background="@drawable/backbut"
+        android:layout_margin="@dimen/most_spaces"/>
+    <Button android:text="@string/numb_6" android:id="@+id/lvl6"
+        android:background="@drawable/backbut"
+        android:layout_margin="@dimen/most_spaces"/>
+    <Button android:text="@string/numb_7" android:id="@+id/lvl7"
+        android:background="@drawable/backbut"
+        android:layout_margin="@dimen/most_spaces"/>
+    <Button android:text="@string/numb_8" android:id="@+id/lvl8"
+        android:background="@drawable/backbut"
+        android:layout_margin="@dimen/most_spaces"/>
+    <Button android:text="@string/numb_9" android:id="@+id/lvl9"
+        android:background="@drawable/backbut"
+        android:layout_margin="@dimen/most_spaces"/>
+    <Button android:text="@string/numb_10" android:id="@+id/lvl10"
+        android:background="@drawable/backbut"
+        android:layout_margin="@dimen/most_spaces"/>
+    <Button android:text="@string/numb_11" android:id="@+id/lvl11"
+        android:background="@drawable/backbut"
+        android:layout_margin="@dimen/most_spaces"/>
+    <Button android:text="@string/numb_12" android:id="@+id/lvl12"
+        android:background="@drawable/backbut"
+        android:layout_margin="@dimen/most_spaces"/>
 
 </GridLayout>

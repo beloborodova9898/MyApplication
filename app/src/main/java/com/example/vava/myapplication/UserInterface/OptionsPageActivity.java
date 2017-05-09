@@ -12,8 +12,9 @@ import com.example.vava.myapplication.R;
 
 public class OptionsPageActivity extends Activity {
 
-    public static final String APP_PREFERENCES = "diffValue";
+    public static final String APP_PREFERENCES = "someValues";
     public static final String APP_PREFERENCES_DIFF = "endlessModeDifficulty";
+    public static final String APP_PREFERENCES_SURV = "currentSurvLvl";
     private SharedPreferences dValue;
 
     @Override
@@ -37,11 +38,11 @@ public class OptionsPageActivity extends Activity {
             }
         });
 
-        Button resetE = (Button) findViewById(R.id.buttonResetEndless);
-        resetE.setOnClickListener(new View.OnClickListener() {
+        Button resetS = (Button) findViewById(R.id.buttonResetSurv);
+        resetS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                resetEndlessMode();
+                resetSurvivalMode();
             }
         });
 
@@ -58,7 +59,13 @@ public class OptionsPageActivity extends Activity {
         diffChangedMessage.show();
     }
 
-    public void resetEndlessMode () {
+    public void resetSurvivalMode () {
+        SharedPreferences sValue;
+        sValue = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sValue.edit();
+        editor.putInt(APP_PREFERENCES_SURV, 1);
+        editor.apply();
+
         Toast diffChangedMessage = Toast.makeText(getApplicationContext(),
                 R.string.endl_mode_reset_finished, Toast.LENGTH_SHORT);
         diffChangedMessage.show();

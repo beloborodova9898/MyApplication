@@ -169,4 +169,74 @@
         <item>0</item>
     </integer-array>
 
+    <integer-array name="su_lvl_1">
+        <item>20</item>
+        <item>2</item>
+        <item>10</item>
+
+        <item>18</item>
+        <item>0</item>
+        <item>1</item>
+
+        <item>13</item>
+        <item>0</item>
+        <item>6</item>
+    </integer-array>
+
+    <integer-array name="su_lvl_2">
+        <item>3</item>
+        <item>50</item>
+        <item>32</item>
+
+        <item>2</item>
+        <item>0</item>
+        <item>30</item>
+
+        <item>0</item>
+        <item>17</item>
+        <item>15</item>
+    </integer-array>
+
+    <integer-array name="su_lvl_3">
+        <item>88</item>
+        <item>50</item>
+        <item>3</item>
+
+        <item>0</item>
+        <item>49</item>
+        <item>0</item>
+
+        <item>39</item>
+        <item>10</item>
+        <item>0</item>
+    </integer-array>
+
+    <integer-array name="su_lvl_4">
+        <item>100</item>
+        <item>1</item>
+        <item>80</item>
+
+        <item>100</item>
+        <item>0</item>
+        <item>0</item>
+
+        <item>50</item>
+        <item>0</item>
+        <item>50</item>
+    </integer-array>
+
+    <integer-array name="su_lvl_5">
+        <item>998</item>
+        <item>1</item>
+        <item>774</item>
+
+        <item>97</item>
+        <item>0</item>
+        <item>656</item>
+
+        <item>578</item>
+        <item>0</item>
+        <item>175</item>
+    </integer-array>
+
 </resources>

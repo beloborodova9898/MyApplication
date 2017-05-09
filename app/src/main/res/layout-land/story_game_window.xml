@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@drawable/backgr">
 
     <TextView
+        android:background="@color/glass2color"
         android:text="@string/target_lbl"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/most_text"
         android:id="@+id/textViewTarget" />
@@ -17,13 +19,19 @@
 
         <Button
             android:text="@string/need_help_button"
+            android:background="@drawable/backbut"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/most_text"
             android:id="@+id/buttonNeedHelp" />
 
+        <Space
+            android:layout_width="@dimen/most_spaces"
+            android:layout_height="wrap_content" />
+
         <Button
             android:text="@string/give_up_button"
+            android:background="@drawable/backbut"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/most_text"
@@ -44,16 +52,16 @@
                 android:layout_weight="1"
                  />
 
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:textSize="@dimen/text_on_glass"
-                android:textColor="@color/glass2color"
-                android:id="@+id/glass2"
-                android:layout_weight="1"
-                />
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/text_on_glass"
+            android:textColor="@color/glass2color"
+            android:id="@+id/glass2"
+            android:layout_weight="1"
+            />
 
-            <Button
+        <Button
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:textSize="@dimen/text_on_glass"

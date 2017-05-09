@@ -160,6 +160,12 @@ public class GlassGraph {
     public List<Duga> getDugi() {
         return dugi;
     }
+
+    public Vert getRandomVert() {
+        int max = verts.size() - 2;
+        Random r = new Random();
+        return verts.get(max/2 + r.nextInt(max/2));
+    }
 }
 /*
         Пример использования:

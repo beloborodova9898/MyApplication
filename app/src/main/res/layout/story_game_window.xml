@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:baselineAligned="false"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:background="@drawable/backgr">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -59,14 +60,24 @@
                 android:layout_height="wrap_content"
                 android:text="@string/target_lbl" />
 
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/most_spaces" />
+
             <Button
                 android:id="@+id/buttonNeedHelp"
+                android:background="@drawable/backbut"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/need_help_button" />
 
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/most_spaces" />
+
             <Button
                 android:id="@+id/buttonGiveUp"
+                android:background="@drawable/backbut"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/give_up_button" />

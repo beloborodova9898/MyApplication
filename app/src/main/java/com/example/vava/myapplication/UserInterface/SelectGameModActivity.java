@@ -40,6 +40,12 @@ public class SelectGameModActivity extends Activity {
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, MainMenuActivity.class);
+        startActivity(intent);
+    }
+
     public void buttonStoryPressed () {
         Intent intent = new Intent(this, SelectStoryLvlActivity.class);
         startActivity(intent);

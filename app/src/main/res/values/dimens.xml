@@ -4,4 +4,5 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="text_on_glass">23sp</dimen>
     <dimen name="most_text">15sp</dimen>
+    <dimen name="most_spaces">5dp</dimen>
 </resources>
