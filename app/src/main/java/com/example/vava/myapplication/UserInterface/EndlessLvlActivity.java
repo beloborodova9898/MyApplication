@@ -74,6 +74,11 @@ public class EndlessLvlActivity extends Activity {
                 @Override
                 public void onClick(View v) { glassPressed(tempI); } });
             levelLists[i] = visualGlasses[i].getBackground();
+
+            // Вот это необходимо, т.к. при повороте экрана ToggleButton
+            // ставит поверх текста своё O I
+            visualGlasses[i].setTextOff(game.sostStakana(i));
+            visualGlasses[i].setTextOn(game.sostStakana(i));
         }
         refreshAll();
 
