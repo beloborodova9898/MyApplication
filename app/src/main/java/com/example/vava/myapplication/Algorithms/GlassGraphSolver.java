@@ -102,8 +102,7 @@ public class GlassGraphSolver {
 
                     }
                 }
-        // Не отстаёт:
-        return null;
+        throw new AssertionError("WhatHappened fail");
     }
 
     private static int[] getNeighsOf(int vertIndex, List<Vert> verts, List<Integer> dugiVertInd, List<Duga> dugi) {

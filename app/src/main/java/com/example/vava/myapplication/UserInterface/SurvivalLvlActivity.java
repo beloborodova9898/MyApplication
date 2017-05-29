@@ -1,32 +1,33 @@
 package com.example.vava.myapplication.UserInterface;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
-import com.example.vava.myapplication.Algorithms.GlassGraph;
-import com.example.vava.myapplication.Algorithms.GlassGraphSolver;
-import com.example.vava.myapplication.Algorithms.GlassSolution;
 import com.example.vava.myapplication.Game3Stakana;
 import com.example.vava.myapplication.R;
+
+import static com.example.vava.myapplication.Game3Stakana.numberOfGlasses;
+import static com.example.vava.myapplication.UserInterface.StatisticsPageActivity.STATIST;
+import static com.example.vava.myapplication.UserInterface.StatisticsPageActivity.STATIST_SURV;
 
 public class SurvivalLvlActivity extends Activity {
     private int [] data;
     private Game3Stakana game;
-    private Button [] visualGlasses;
-    int activeGlass; // 3 = никакой
+    private ToggleButton[] visualGlasses;
+    private Drawable [] levelLists;
+    private int activeGlass; // -1 = никакой
     private static final String KEY_GAME = "GAME";
-    public static final String APP_PREFERENCES = "someValues";
-    public static final String APP_PREFERENCES_SURV = "currentSurvLvl";
-    public static final String STATIST = "statistics";
-    public static final String STATIST_SURV = "survival";
+    private static final String APP_PREFERENCES = "someValues";
+    private static final String APP_PREFERENCES_SURV = "currentSurvLvl";
     private static final int maxSurvLvl = 5;
 
     @Override
@@ -47,31 +48,35 @@ public class SurvivalLvlActivity extends Activity {
             int toOpen = sValue.getInt(APP_PREFERENCES_SURV, 1);
             getData(toOpen);
         }
-        game = new Game3Stakana(data);
-        activeGlass = 3;
-        TextView trgt = (TextView) findViewById(R.id.textViewTarget);
-        trgt.setText(trgt.getText() + " " + Integer.toString(data[6]) + " " + Integer.toString(data[7]) + " " + Integer.toString(data[8]));
 
-        visualGlasses = new Button[3];
-        visualGlasses[0] = (Button) findViewById(R.id.glass1);
-        visualGlasses[0].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) { glassPressed(0); } });
-        visualGlasses[1] = (Button) findViewById(R.id.glass2);
-        visualGlasses[1].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) { glassPressed(1); } });
-        visualGlasses[2] = (Button) findViewById(R.id.glass3);
-        visualGlasses[2].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) { glassPressed(2); } });
+        game = new Game3Stakana(data);
+        activeGlass = -1;
+
+        TextView trgt = (TextView) findViewById(R.id.textViewTarget);
+        String targetMessage = "";
+        for (int i=0; i < numberOfGlasses; i++)
+            targetMessage += " " + data[numberOfGlasses*2 + i];
+        trgt.setText(trgt.getText() + targetMessage);
+
+        visualGlasses = new ToggleButton[numberOfGlasses];
+        levelLists = new Drawable[numberOfGlasses];
+        for (int i=0; i < numberOfGlasses; i++) {
+            int glassNumber = i + 1;
+            String buttonName = "glass" + glassNumber;
+            int id = getResources().getIdentifier(buttonName, "id", getPackageName());
+            visualGlasses[i] = (ToggleButton) findViewById(id);
+            final int tempI = i;
+            visualGlasses[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) { glassPressed(tempI); } });
+            levelLists[i] = visualGlasses[i].getBackground();
+        }
         refreshAll();
 
         Button giveUp = (Button) findViewById(R.id.buttonGiveUp);
         giveUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { giveUpPressed(); } });
-
     }
 
     @Override
@@ -95,36 +100,18 @@ public class SurvivalLvlActivity extends Activity {
     }
 
     private void refreshText() {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < numberOfGlasses; i++)
+            refreshText(i);
+    }
+
+    private void refreshText(int i) {
             visualGlasses[i].setText(game.sostStakana(i));
     }
 
     private void refreshImages() {
-        for (int i = 0; i < 3; i++) {
-            setNotSelImage(i);
+        for (int i = 0; i < numberOfGlasses; i++) {
+            levelLists[i].setLevel(game.getState(i));
         }
-    }
-
-    private void setSelImage(int i) {
-        String name = "gl"+Integer.toString(i+1)+stateOf(i)+"_sel";
-        int resID = getResources().getIdentifier(name, "drawable", getPackageName());
-        visualGlasses[i].setBackground(getResources().getDrawable(resID));
-    }
-
-    private String stateOf(int i) {
-        switch (game.getState(i)) {
-            case 0: return "_empty";
-            case 1: return "_fill1";
-            case 2: return "_fill2";
-            case 3: return "_full";
-        }
-        return null;
-    }
-
-    private void setNotSelImage(int i) {
-        String name = "gl"+Integer.toString(i+1)+stateOf(i);
-        int resID = getResources().getIdentifier(name, "drawable", getPackageName());
-        visualGlasses[i].setBackground(getResources().getDrawable(resID));
     }
 
     private void refreshAll() {
@@ -133,16 +120,17 @@ public class SurvivalLvlActivity extends Activity {
     }
 
     private void glassPressed(int which) {
-        if (activeGlass==3) {
-            setSelImage(which);
+        if (activeGlass == -1) {
             activeGlass = which;
+            refreshText(which);
             return;
         }
-        if(activeGlass==which) {
-            setNotSelImage(which);
-            activeGlass = 3;
+        if(activeGlass == which) {
+            refreshText(which);
+            activeGlass = -1;
             return;
         }
+        visualGlasses[activeGlass].setChecked(false);
         if (game.transfuse(activeGlass, which)) {
             congr();
             recountNextLvl();
@@ -150,8 +138,9 @@ public class SurvivalLvlActivity extends Activity {
             Intent intent = new Intent(this, SelectGameModActivity.class);
             startActivity(intent);
         }
+        visualGlasses[which].setChecked(false);
         refreshAll();
-        activeGlass = 3;
+        activeGlass = -1;
     }
 
     private void recountStatistics() {

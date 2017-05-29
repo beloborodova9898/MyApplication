@@ -52,6 +52,6 @@
     <string name="help_header">Вот решение:</string>
     <string name="user_gives_up">Не сдавайся!</string>
     <string name="user_wins">Вы выиграли!</string>
-    <string name="really_no_sol">Действительно!</string>
+    <string name="really_no_sol">Нет решения!</string>
 
 </resources>

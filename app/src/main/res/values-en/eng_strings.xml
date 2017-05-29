@@ -39,5 +39,5 @@
     <string name="help_header">Here is the solution:</string>
     <string name="user_gives_up">Dont give up!</string>
     <string name="user_wins">You won!</string>
-    <string name="really_no_sol">Really!</string>
+    <string name="really_no_sol">No solution!</string>
 </resources>

@@ -9,11 +9,10 @@ public class GlassSolution {
 
     public String toString() {
         String result="";
-        result += "Вот как надо переливать:\n";
 
         int counter = 1;
         for (int i=0; i<path.length; i++) {
-            result += counter+") "+path[i][0] +" -> "+path[i][1]+'\n';
+            result += counter+") "+(path[i][0]+1) +" -> "+(path[i][1]+1)+'\n';
             counter++;
         }
 

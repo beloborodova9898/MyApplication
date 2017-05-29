@@ -8,7 +8,6 @@ import android.widget.Button;
 
 import com.example.vava.myapplication.R;
 
-
 public class SelectGameModActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,17 +45,17 @@ public class SelectGameModActivity extends Activity {
         startActivity(intent);
     }
 
-    public void buttonStoryPressed () {
+    private void buttonStoryPressed () {
         Intent intent = new Intent(this, SelectStoryLvlActivity.class);
         startActivity(intent);
     }
 
-    public void buttonEndlessPressed () {
+    private void buttonEndlessPressed () {
         Intent intent = new Intent(this, EndlessLvlActivity.class);
         startActivity(intent);
     }
 
-    public void buttonSurvivalPressed () {
+    private void buttonSurvivalPressed () {
         Intent intent = new Intent(this, SurvivalLvlActivity.class);
         startActivity(intent);
     }

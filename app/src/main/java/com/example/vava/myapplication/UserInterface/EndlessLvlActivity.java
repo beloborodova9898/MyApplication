@@ -5,11 +5,13 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.example.vava.myapplication.Algorithms.Glass;
 import com.example.vava.myapplication.Algorithms.GlassGraph;
@@ -22,17 +24,19 @@ import com.example.vava.myapplication.R;
 import java.util.NoSuchElementException;
 import java.util.Random;
 
+import static com.example.vava.myapplication.Game3Stakana.numberOfGlasses;
+import static com.example.vava.myapplication.UserInterface.OptionsPageActivity.APP_PREFERENCES;
+import static com.example.vava.myapplication.UserInterface.OptionsPageActivity.APP_PREFERENCES_DIFF;
+import static com.example.vava.myapplication.UserInterface.StatisticsPageActivity.STATIST;
+import static com.example.vava.myapplication.UserInterface.StatisticsPageActivity.STATIST_ENDL;
+
 
 public class EndlessLvlActivity extends Activity {
-    boolean highDifficulty;
-    public static final String APP_PREFERENCES = "someValues";
-    public static final String APP_PREFERENCES_DIFF = "endlessModeDifficulty";
-    public static final String STATIST = "statistics";
-    public static final String STATIST_ENDL = "endless";
     private int [] data;
     private Game3Stakana game;
-    int activeGlass; // 3 = никакой
-    private Button [] visualGlasses;
+    private int activeGlass; // -1 = никакой
+    private ToggleButton[] visualGlasses;
+    private Drawable[] levelLists;
     private static final String KEY_GAME = "GAME";
 
     @Override
@@ -45,30 +49,32 @@ public class EndlessLvlActivity extends Activity {
         } else {
             SharedPreferences dValue;
             dValue = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
-            highDifficulty = dValue.getBoolean(APP_PREFERENCES_DIFF, false);
+            boolean highDifficulty = dValue.getBoolean(APP_PREFERENCES_DIFF, false);
             createData(highDifficulty);
         }
 
         game = new Game3Stakana(data);
+        activeGlass = -1;
 
         TextView trgt = (TextView) findViewById(R.id.textViewTarget);
-        trgt.setText(trgt.getText() + " " + Integer.toString(data[6]) + " " + Integer.toString(data[7]) + " " + Integer.toString(data[8]));
+        String targetMessage = "";
+        for (int i=0; i < numberOfGlasses; i++)
+            targetMessage += " " + data[numberOfGlasses*2 + i];
+        trgt.setText(trgt.getText() + targetMessage);
 
-        activeGlass = 3;
-
-        visualGlasses = new Button[3];
-        visualGlasses[0] = (Button) findViewById(R.id.glass1);
-        visualGlasses[0].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) { glassPressed(0); } });
-        visualGlasses[1] = (Button) findViewById(R.id.glass2);
-        visualGlasses[1].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) { glassPressed(1); } });
-        visualGlasses[2] = (Button) findViewById(R.id.glass3);
-        visualGlasses[2].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) { glassPressed(2); } });
+        visualGlasses = new ToggleButton[numberOfGlasses];
+        levelLists = new Drawable[numberOfGlasses];
+        for (int i=0; i < numberOfGlasses; i++) {
+            int glassNumber = i + 1;
+            String buttonName = "glass" + glassNumber;
+            int id = getResources().getIdentifier(buttonName, "id", getPackageName());
+            visualGlasses[i] = (ToggleButton) findViewById(id);
+            final int tempI = i;
+            visualGlasses[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) { glassPressed(tempI); } });
+            levelLists[i] = visualGlasses[i].getBackground();
+        }
         refreshAll();
 
         Button helper = (Button) findViewById(R.id.buttonNeedHelp);
@@ -90,7 +96,8 @@ public class EndlessLvlActivity extends Activity {
     }
 
     private void createData(boolean isDifficult) {
-        data = new int [9];
+        data = new int [numberOfGlasses*3];
+        data = new int [numberOfGlasses*3];
         int min = 2;
         int max = 14;
 
@@ -101,56 +108,42 @@ public class EndlessLvlActivity extends Activity {
 
         Random r = new Random();
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < numberOfGlasses; i++)
         {
             int tempMax = min + r.nextInt(max);
             if (i==0) tempMax /= 2;
             int tempCurr = r.nextInt(tempMax);
             tempCurr *= 0.7;
             data [i] = tempMax;
-            data [3+i] = tempCurr;
+            data [numberOfGlasses+i] = tempCurr;
         }
 
-        int [] maxy = new int[]{data[0], data[1], data[2]};
-        int [] curry = new int[]{data[3], data[4], data[5]};
-        GlassGraph temp = new GlassGraph(maxy, new Vert(curry), 0);
+        int [] maxy = new int[numberOfGlasses];
+        System.arraycopy(data, 0, maxy, 0, numberOfGlasses);
 
+        int [] curry = new int[numberOfGlasses];
+        System.arraycopy(data, numberOfGlasses, curry, 0, numberOfGlasses);
+
+        GlassGraph temp = new GlassGraph(maxy, new Vert(curry), 0);
         Vert finish = temp.getRandomVert();
-        for (int i = 0; i < 3; i++)
-        data[i+6] = finish.getValue(i);
+
+        for (int i = 0; i < numberOfGlasses; i++)
+        data[i+numberOfGlasses*2] = finish.getValue(i);
     }
 
     private void refreshText() {
-        for (int i = 0; i < 3; i++)
-            visualGlasses[i].setText(game.sostStakana(i));
+        for (int i = 0; i < numberOfGlasses; i++)
+            refreshText(i);
+    }
+
+    private void refreshText(int i) {
+        visualGlasses[i].setText(game.sostStakana(i));
     }
 
     private void refreshImages() {
-        for (int i = 0; i < 3; i++) {
-            setNotSelImage(i);
+        for (int i = 0; i < numberOfGlasses; i++) {
+            levelLists[i].setLevel(game.getState(i));
         }
-    }
-
-    private void setSelImage(int i) {
-        String name = "gl"+Integer.toString(i+1)+stateOf(i)+"_sel";
-        int resID = getResources().getIdentifier(name, "drawable", getPackageName());
-        visualGlasses[i].setBackground(getResources().getDrawable(resID));
-    }
-
-    private String stateOf(int i) {
-        switch (game.getState(i)) {
-            case 0: return "_empty";
-            case 1: return "_fill1";
-            case 2: return "_fill2";
-            case 3: return "_full";
-        }
-        return null;
-    }
-
-    private void setNotSelImage(int i) {
-        String name = "gl"+Integer.toString(i+1)+stateOf(i);
-        int resID = getResources().getIdentifier(name, "drawable", getPackageName());
-        visualGlasses[i].setBackground(getResources().getDrawable(resID));
     }
 
     private void refreshAll() {
@@ -159,24 +152,26 @@ public class EndlessLvlActivity extends Activity {
     }
 
     private void glassPressed(int which) {
-        if (activeGlass==3) {
-            setSelImage(which);
+        if (activeGlass == -1) {
             activeGlass = which;
+            refreshText(which);
             return;
         }
-        if(activeGlass==which) {
-            setNotSelImage(which);
-            activeGlass = 3;
+        if(activeGlass == which) {
+            refreshText(which);
+            activeGlass = -1;
             return;
         }
+        visualGlasses[activeGlass].setChecked(false);
         if (game.transfuse(activeGlass, which)) {
             congr();
             addStatistics();
             Intent intent = new Intent(this, SelectGameModActivity.class);
             startActivity(intent);
         }
+        visualGlasses[which].setChecked(false);
         refreshAll();
-        activeGlass = 3;
+        activeGlass = -1;
     }
 
     private void addStatistics() {

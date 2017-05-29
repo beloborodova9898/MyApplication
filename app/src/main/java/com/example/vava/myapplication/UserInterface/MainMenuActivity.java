@@ -62,27 +62,27 @@ public class MainMenuActivity extends Activity {
         finishAffinity();
     }
 
-    public void buttonStartPressed () {
+    private void buttonStartPressed () {
         Intent intent = new Intent(this, SelectGameModActivity.class);
         startActivity(intent);
     }
 
-    public void buttonAboutPressed () {
+    private void buttonAboutPressed () {
         Intent intent = new Intent(this, AboutPageActivity.class);
         startActivity(intent);
     }
 
-    public void buttonStatisticsPressed() {
+    private void buttonStatisticsPressed() {
         Intent intent = new Intent(this, StatisticsPageActivity.class);
         startActivity(intent);
     }
 
-    public void buttonOptionsPressed() {
+    private void buttonOptionsPressed() {
         Intent intent = new Intent(this, OptionsPageActivity.class);
         startActivity(intent);
     }
 
-    public void buttonHeipPressed() {
+    private void buttonHeipPressed() {
         Intent intent = new Intent(this, HowToPlayPageActivity.class);
         startActivity(intent);
     }

@@ -14,13 +14,16 @@ import java.util.Random;
 public class Game3Stakana {
     private Glass [] glasses;
     private Vert finish;
+    public static int numberOfGlasses = 3;
 
     public Game3Stakana(int[] data) {
-        glasses = new Glass[3];
-        for (int i = 0; i < 3; i++)
-            glasses[i] = new Glass(data[i], data[i+3]);
+        glasses = new Glass[numberOfGlasses];
+        for (int i = 0; i < numberOfGlasses; i++)
+            glasses[i] = new Glass(data[i], data[numberOfGlasses + i]);
 
-        finish = new Vert(new int[]{data[6], data[7], data[8]});
+        int[] tempDataForVert = new int [numberOfGlasses];
+        System.arraycopy(data, numberOfGlasses * 2, tempDataForVert, 0, numberOfGlasses);
+        finish = new Vert(tempDataForVert);
 
     }
 
@@ -35,8 +38,8 @@ public class Game3Stakana {
 
         Random r = new Random();
 
-        glasses = new Glass[3];
-        for (int i = 0; i < 3; i++)
+        glasses = new Glass[numberOfGlasses];
+        for (int i = 0; i < numberOfGlasses; i++)
         {
             int tempMax = min + r.nextInt(max);
             if (i==0) tempMax /= 2;
@@ -78,9 +81,8 @@ public class Game3Stakana {
     }
 
     public GlassSolution solve(Vert finish, int maxDiff) {
-        GlassGraph a = null;
         try {
-            a = new GlassGraph(glasses, maxDiff);
+            GlassGraph a = new GlassGraph(glasses, maxDiff);
             return GlassGraphSolver.breadthFirstSearch(a, finish);
         } catch (OutOfMemoryError e) {
             return null;
@@ -109,7 +111,6 @@ public class Game3Stakana {
     public int getState(int i) {
         int tempC = glasses[i].getCurrentValue();
         int tempM = glasses[i].getMaxValue();
-        int diff = tempC - tempM;
         if (tempC == 0) return 0;
         if (tempC == tempM) return 3;
         if (tempC < tempM/2) return 1;
@@ -117,13 +118,13 @@ public class Game3Stakana {
     }
 
     public int[] toIntArray() {
-        int[] result = new int[9];
-        for (int i=0; i<3; i++)
+        int[] result = new int[numberOfGlasses*3];
+        for (int i=0; i<numberOfGlasses; i++)
             result [i] = glasses[i].getMaxValue();
-        for (int i=3; i<6; i++)
-            result[i] = glasses[i-3].getCurrentValue();
-        for (int i=6; i<9; i++)
-            result[i] = finish.getValue(i-6);
+        for (int i=numberOfGlasses; i<numberOfGlasses*2; i++)
+            result[i] = glasses[i-numberOfGlasses].getCurrentValue();
+        for (int i=numberOfGlasses*2; i<numberOfGlasses*3; i++)
+            result[i] = finish.getValue(i-numberOfGlasses*2);
 
         return result;
     }

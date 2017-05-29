@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<level-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:maxLevel="0">
+        <selector>
+            <item android:state_checked="true" android:drawable="@drawable/gl3_empty_sel" />
+            <item android:drawable="@drawable/gl3_empty" />
+        </selector>
+    </item>
+
+    <item android:maxLevel="1">
+        <selector>
+            <item android:state_checked="true" android:drawable="@drawable/gl3_fill1_sel" />
+            <item android:drawable="@drawable/gl3_fill1" />
+        </selector>
+    </item>
+
+    <item android:maxLevel="2">
+        <selector>
+            <item android:state_checked="true" android:drawable="@drawable/gl3_fill2_sel" />
+            <item android:drawable="@drawable/gl3_fill2" />
+        </selector>
+    </item>
+
+    <item android:maxLevel="3">
+        <selector>
+            <item android:state_checked="true" android:drawable="@drawable/gl3_full_sel" />
+            <item android:drawable="@drawable/gl3_full" />
+        </selector>
+    </item>
+</level-list>

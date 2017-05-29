@@ -105,7 +105,7 @@ public class GlassGraph {
                         }
                         if (maxExists)
                             if (counter == maxNumberOfD)
-                                throw new OutOfMemoryError("Max number reached!");
+                                throw new DifficultyExceededException();
                     }
                 }
             }
@@ -162,7 +162,8 @@ public class GlassGraph {
     }
 
     public Vert getRandomVert() {
-        int max = verts.size() - 2;
+        int max = verts.size() - 1; // тут была ошибка?
+        System.out.println("Max: " + max);
         Random r = new Random();
         return verts.get(max/2 + r.nextInt(max/2));
     }
